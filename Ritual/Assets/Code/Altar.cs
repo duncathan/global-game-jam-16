@@ -12,10 +12,10 @@ public class Altar : MonoBehaviour {
 	}
 
 	void Update(){
-		touchers = Physics2D.OverlapAreaAll (new Vector2 (-1, -4.25f), new Vector2 (1, -3.75f));
+		touchers = Physics2D.OverlapAreaAll (new Vector2 (-1+transform.position.x, -4.25f+transform.position.y), new Vector2 (1+transform.position.x, -3.75f+transform.position.y));
 		foreach (Collider2D col in touchers) {
-			if(col.gameObject==target.gameObject){
-				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+			if (col.gameObject == target.gameObject) {
+				SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
 			}
 		}
 	}

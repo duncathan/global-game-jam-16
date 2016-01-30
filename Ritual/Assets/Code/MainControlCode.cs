@@ -15,7 +15,6 @@ public class MainControlCode : MonoBehaviour {
 
 	void OnLevelWasLoaded () {
 		if (FindObjectsOfType<MainControlCode> ().Length > 1) {
-			Debug.Log (this != FindObjectsOfType<MainControlCode> () [1]);
 			if (this != FindObjectsOfType<MainControlCode> () [1]) {
 				changer = colorCycle (changer);
 				wall = GameObject.Find ("Background");
