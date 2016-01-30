@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Altar : MonoBehaviour {
 
@@ -14,7 +15,7 @@ public class Altar : MonoBehaviour {
 		touchers = Physics2D.OverlapAreaAll (new Vector2 (-1, -4.25f), new Vector2 (1, -3.75f));
 		foreach (Collider2D col in touchers) {
 			if(col.gameObject==target.gameObject){
-				Application.LoadLevel(Application.loadedLevel+1);
+				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
 			}
 		}
 	}
