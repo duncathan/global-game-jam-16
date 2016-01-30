@@ -46,7 +46,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Code\MainControlCode.cs" />
      <Compile Include="Assets\Code\Rotate.cs" />
+     <Compile Include="Assets\Code\Stretch.cs" />
+     <Compile Include="Assets\Code\Translate.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
