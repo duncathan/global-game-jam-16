@@ -5,8 +5,20 @@ public class Rotate : MonoBehaviour {
 
 	float mouseX = 0.0f;
 	Vector3 clickPosition = new Vector3 (0,0,0);
+	Vector3 position = new Vector3 (0,0,0);
 	bool testForMouse = true;
 	bool runMove = false;
+
+	void Start () {
+		position = transform.localPosition;
+	}
+
+	void OnCollisionEnter2D (Collision2D col) {
+		Rigidbody2D hitBody = col.collider.attachedRigidbody;
+		if (hitBody != null) {
+			hitBody.AddForce (col.relativeVelocity);
+		}
+	}
 
 	void Update () {
 		if (testForMouse && Input.GetMouseButtonDown (0)) {
@@ -27,9 +39,10 @@ public class Rotate : MonoBehaviour {
 		} else if (runMove) {
 			clickPosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 			if(mouseX != clickPosition.x){
-				transform.Rotate (0,0,(mouseX-clickPosition.x)*10);
-				mouseX = clickPosition.x;
+				gameObject.GetComponent<Rigidbody2D>().AddTorque((mouseX-clickPosition.x)*10000000);
+				//mouseX = clickPosition.x;
 			}
 		}
+		transform.localPosition = position;
 	}
 }
