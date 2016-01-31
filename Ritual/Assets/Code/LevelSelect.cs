@@ -15,15 +15,9 @@ public class LevelSelect : MonoBehaviour {
 		textPlace = GameObject.Find ("LevelNumber");
 		playButton = GameObject.Find ("PlayButton");
 		cont = GameObject.Find("MainController").GetComponent<MainControlCode> ();
-		foreach (int s in cont.unlockedLevels.ints) {
-			if (s == levelDisplay) {
-				playButton.GetComponent<Button> ().enabled = true;
-				goto exit;
-			}
+		if(!(cont.unlockedLevels.ints.Contains(levelDisplay))){
+			textPlace.GetComponent<Text> ().text = levelDisplay.ToString();
 		}
-		playButton.GetComponent<Button> ().enabled = false;
-		exit:
-		textPlace.GetComponent<Text> ().text = levelDisplay.ToString();
 	}
 
 	void oneMore () {
@@ -31,15 +25,9 @@ public class LevelSelect : MonoBehaviour {
 		if (levelDisplay > SceneManager.sceneCountInBuildSettings - 2) {
 			levelDisplay = 1;
 		}
-		foreach (int s in cont.unlockedLevels.ints) {
-			if (s == levelDisplay) {
-				playButton.GetComponent<Button> ().enabled = true;
-				goto exit;
-			}
+		if (!(cont.unlockedLevels.ints.Contains (levelDisplay))) {
+			textPlace.GetComponent<Text> ().text = levelDisplay.ToString ();
 		}
-		playButton.GetComponent<Button> ().enabled = false;
-		exit:
-		textPlace.GetComponent<Text> ().text = levelDisplay.ToString();
 	}
 		
 	void oneLess () {
@@ -48,14 +36,10 @@ public class LevelSelect : MonoBehaviour {
 			levelDisplay = SceneManager.sceneCountInBuildSettings - 2;
 		}
 		foreach (int s in cont.unlockedLevels.ints) {
-			if (s == levelDisplay) {
+			if(!(cont.unlockedLevels.ints.Contains(levelDisplay))){
 				playButton.GetComponent<Button> ().enabled = true;
-				goto exit;
+				textPlace.GetComponent<Text> ().text = levelDisplay.ToString();
 			}
-		}
-		playButton.GetComponent<Button> ().enabled = false;
-		exit:
-		textPlace.GetComponent<Text> ().text = levelDisplay.ToString();
 	}
 
 	void ChooseLevel() {
