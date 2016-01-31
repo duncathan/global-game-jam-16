@@ -48,6 +48,7 @@
      <Compile Include="Assets\Code\Altar.cs" />
      <Compile Include="Assets\Code\ButtonFunctions.cs" />
      <Compile Include="Assets\Code\ConserveVelocity.cs" />
+     <Compile Include="Assets\Code\LevelSelect.cs" />
      <Compile Include="Assets\Code\MainControlCode.cs" />
      <Compile Include="Assets\Code\Rotate.cs" />
      <Compile Include="Assets\Code\Stretch.cs" />

@@ -79,6 +79,7 @@
 'Assets/Code/Altar.cs'
 'Assets/Code/ButtonFunctions.cs'
 'Assets/Code/ConserveVelocity.cs'
+'Assets/Code/LevelSelect.cs'
 'Assets/Code/MainControlCode.cs'
 'Assets/Code/Rotate.cs'
 'Assets/Code/Stretch.cs'

@@ -1,19 +1,46 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic; 
+using System.Runtime.Serialization.Formatters.Binary; 
+using System.IO;
 
+[System.Serializable]
+public class intList{
+	public List<int> ints = new List<int>();
+
+	public void Add(int x){
+		ints.Add (x);
+	}
+}
+	
 public class MainControlCode : MonoBehaviour {
 
 	GameObject wall;
 	Material mat;
+
 	Color changer = new Color (0.80f, 1, 1, 1);
 	int color = 3;
 
+	public intList unlockedLevels = new intList();
+
 	void Start(){
+		Debug.Log (Application.persistentDataPath);
 		DontDestroyOnLoad (transform.gameObject);
+		BinaryFormatter bf = new BinaryFormatter ();
+		FileStream file = File.Open (Application.persistentDataPath + "/LevelsDone.ld", FileMode.OpenOrCreate);
+		unlockedLevels = (intList)bf.Deserialize (file);
+		file.Close ();
 	}
 
 	void OnLevelWasLoaded () {
+		foreach (int s in unlockedLevels.ints) {
+			if (s == SceneManager.GetActiveScene().buildIndex) {
+				goto exists;
+			}
+		}
+		unlockedLevels.Add (SceneManager.GetActiveScene ().buildIndex);
+		exists:
 		if (FindObjectsOfType<MainControlCode> ().Length > 1) {
 			if (this != FindObjectsOfType<MainControlCode> () [1]) {
 				changer = colorCycle (changer);
@@ -34,6 +61,10 @@ public class MainControlCode : MonoBehaviour {
 	void Update () {
 		if (Input.GetKey (KeyCode.Backspace)) {
 			SceneManager.LoadScene(0);
+			BinaryFormatter bf = new BinaryFormatter ();
+			FileStream file = File.Open(Application.persistentDataPath + "/LevelsDone.ld", FileMode.OpenOrCreate);
+			bf.Serialize (file, unlockedLevels);
+			file.Close ();
 		}
 		if(Input.GetKey (KeyCode.R)){
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
