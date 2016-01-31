@@ -19,7 +19,8 @@ public class Rotate : Transformable {
     {
         base.Transform();
         clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        gameObject.GetComponent<Rigidbody2D>().AddTorque((mouseX - clickPosition.x) * torqueCoefficient);
+		float mouseTorque = -(mouseX - clickPosition.x)*(mouseY - clickPosition.y);
+        gameObject.GetComponent<Rigidbody2D>().AddTorque(mouseTorque * torqueCoefficient);
     }
 }
 
