@@ -10,11 +10,12 @@ public class ButtonFunctions : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (run) {
-			if(function == "NewGame"){
+			if (function == "NewGame") {
 				SceneManager.LoadScene (1);
-			}
-			else if(function == "Exit"){
-				Application.Quit();
+			} else if (function == "Exit") {
+				Application.Quit ();
+			} else if (function == "LoadGame") {
+				SceneManager.LoadScene ("Level Select");
 			}
 		}
 	}
