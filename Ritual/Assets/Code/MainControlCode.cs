@@ -25,7 +25,6 @@ public class MainControlCode : MonoBehaviour {
 	public intList unlockedLevels = new intList();
 
 	void Start(){
-		Debug.Log (Application.persistentDataPath);
 		DontDestroyOnLoad (transform.gameObject);
 		BinaryFormatter bf = new BinaryFormatter ();
 		FileStream file = File.Open (Application.persistentDataPath + "/LevelsDone.ld", FileMode.OpenOrCreate);
