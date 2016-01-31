@@ -33,7 +33,7 @@ public class Transformable : MonoBehaviour
                 }
             }
         }
-        else if(Input.GetMouseButtonUp(0))
+        if(Input.GetMouseButtonUp(0))
         {
             transformOnUpdate = false;
         }

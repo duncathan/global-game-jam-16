@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class ButtonFunctions : MonoBehaviour {
 
@@ -10,7 +11,7 @@ public class ButtonFunctions : MonoBehaviour {
 	void Update () {
 		if (run) {
 			if(function == "NewGame"){
-				Application.LoadLevel (1);
+				SceneManager.LoadScene (1);
 			}
 			else if(function == "Exit"){
 				Application.Quit();

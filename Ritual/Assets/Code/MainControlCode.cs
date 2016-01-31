@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class MainControlCode : MonoBehaviour {
 
@@ -14,7 +15,6 @@ public class MainControlCode : MonoBehaviour {
 
 	void OnLevelWasLoaded () {
 		if (FindObjectsOfType<MainControlCode> ().Length > 1) {
-			Debug.Log (this != FindObjectsOfType<MainControlCode> () [1]);
 			if (this != FindObjectsOfType<MainControlCode> () [1]) {
 				changer = colorCycle (changer);
 				wall = GameObject.Find ("Background");
@@ -33,7 +33,10 @@ public class MainControlCode : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKey (KeyCode.Backspace)) {
-			Application.LoadLevel(0);
+			SceneManager.LoadScene(0);
+		}
+		if(Input.GetKey (KeyCode.R)){
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 		}
 	}
 
