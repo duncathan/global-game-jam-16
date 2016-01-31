@@ -24,12 +24,16 @@ public class MainControlCode : MonoBehaviour {
 
 	public intList unlockedLevels = new intList();
 
+	MusicHandler music;
+
 	void Start(){
 		DontDestroyOnLoad (transform.gameObject);
 		BinaryFormatter bf = new BinaryFormatter ();
 		FileStream file = File.Open (Application.persistentDataPath + "/LevelsDone.ld", FileMode.OpenOrCreate);
 		unlockedLevels = (intList)bf.Deserialize (file);
 		file.Close ();
+		music = new MusicHandler ();
+		music.start ();
 	}
 
 	void OnLevelWasLoaded () {
@@ -49,6 +53,34 @@ public class MainControlCode : MonoBehaviour {
 			wall = GameObject.Find ("Background");
 			mat = wall.GetComponent <Renderer> ().material;
 			mat.color = changer;
+		}
+
+		switch (SceneManager.GetActiveScene ().buildIndex) {
+		case 1:
+			music.setScene (0);
+			break;
+		case 4:
+			music.setScene (1);
+			break;
+		case 7:
+			music.setScene (2);
+			break;
+		case 10:
+			music.setScene (3);
+			break;
+		case 13:
+			music.setScene (4);
+			break;
+		case 16:
+			music.setScene (5);
+			break;
+		case 19:
+			music.setScene (6);
+			break;
+		case 20:
+			music.setScene (5);
+			break;
+			
 		}
 	}
 
@@ -81,5 +113,41 @@ public class MainControlCode : MonoBehaviour {
 			color = 1;
 		}
 		return c;
+	}
+}
+
+class MusicHandler
+{
+	static FMOD.Studio.System FMOD_StudioSytem;
+	FMOD.Studio.EventInstance music;
+	const int totalScenes = 7;
+	const int sceneLength = 32*1000; //milliseconds
+
+	public void setScene(int newScene)
+	{
+		if (newScene < 0 || newScene >= totalScenes) {
+			return;
+		}
+
+		int timelineCurrent;
+		music.getTimelinePosition (out timelineCurrent);
+
+		int currentScene = timelineCurrent / sceneLength;
+		int sceneDifference = newScene - currentScene;
+		int timeDifference = sceneDifference * sceneLength;
+		int newTime = timelineCurrent + timeDifference;
+
+		music.setTimelinePosition (newTime);
+	}
+
+	public void start()
+	{
+		Debug.Log ("Running!");
+		FMOD.Studio.System.create (out FMOD_StudioSytem);
+		FMOD.Studio.EventDescription desc;
+		FMOD_StudioSytem.getEvent ("event:/Music", out desc);
+		desc.createInstance (out music);
+		music.start ();
+		//Debug.Log(
 	}
 }
