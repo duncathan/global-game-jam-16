@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.07.00">
+    <object class="AudioFile" id="{192ca128-913a-4ea0-a3ef-c7a28a68bebe}">
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>31.998934240362811</value>
+        </property>
+        <property name="audioFilePath">
+            <value>$(AUDIO_BIN_DIR)/ggj - pads - p2 {59f28db1-4923-4d76-b3ee-d449745692fb}.wav</value>
+        </property>
+        <relationship name="container">
+            <destination>{1d99650c-13c4-4880-bc32-9043a5ddc800}</destination>
+        </relationship>
+    </object>
+</objects>

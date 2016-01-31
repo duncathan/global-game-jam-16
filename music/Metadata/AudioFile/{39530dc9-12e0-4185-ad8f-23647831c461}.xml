@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.07.00">
+    <object class="AudioFile" id="{39530dc9-12e0-4185-ad8f-23647831c461}">
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>15.999478458049886</value>
+        </property>
+        <property name="audioFilePath">
+            <value>$(AUDIO_BIN_DIR)/ggj - bass {280949d8-b8eb-4605-835b-47077990d794}.wav</value>
+        </property>
+        <relationship name="container">
+            <destination>{1d99650c-13c4-4880-bc32-9043a5ddc800}</destination>
+        </relationship>
+    </object>
+</objects>

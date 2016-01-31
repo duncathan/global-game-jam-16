@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.07.00">
+    <object class="AudioFile" id="{6800145e-543e-4e70-91da-5825a65f012f}">
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>15.999478458049886</value>
+        </property>
+        <property name="audioFilePath">
+            <value>$(AUDIO_BIN_DIR)/ggj - arp {1ca5570e-6ba2-4ef5-be5e-e2cfba8d5325}.wav</value>
+        </property>
+        <relationship name="container">
+            <destination>{1d99650c-13c4-4880-bc32-9043a5ddc800}</destination>
+        </relationship>
+    </object>
+</objects>

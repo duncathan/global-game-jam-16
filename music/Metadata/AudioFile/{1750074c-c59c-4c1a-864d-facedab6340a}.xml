@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.07.00">
+    <object class="AudioFile" id="{1750074c-c59c-4c1a-864d-facedab6340a}">
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>7.9997505668934243</value>
+        </property>
+        <property name="audioFilePath">
+            <value>$(AUDIO_BIN_DIR)/ggj - drums {d0423ad8-a65c-4064-86aa-10f238e6a3b0}.wav</value>
+        </property>
+        <relationship name="container">
+            <destination>{1d99650c-13c4-4880-bc32-9043a5ddc800}</destination>
+        </relationship>
+    </object>
+</objects>
