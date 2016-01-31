@@ -33,13 +33,9 @@ public class MainControlCode : MonoBehaviour {
 	}
 
 	void OnLevelWasLoaded () {
-		foreach (int s in unlockedLevels.ints) {
-			if (s == SceneManager.GetActiveScene().buildIndex) {
-				goto exists;
-			}
+		if (!(unlockedLevels.ints.Contains (SceneManager.GetActiveScene().buildIndex))) {
+			unlockedLevels.Add (SceneManager.GetActiveScene ().buildIndex);
 		}
-		unlockedLevels.Add (SceneManager.GetActiveScene ().buildIndex);
-		exists:
 		if (FindObjectsOfType<MainControlCode> ().Length > 1) {
 			if (this != FindObjectsOfType<MainControlCode> () [1]) {
 				changer = colorCycle (changer);
@@ -56,18 +52,16 @@ public class MainControlCode : MonoBehaviour {
 		}
 	}
 
-	// Update is called once per frame
-	void Update () {
-		if (Input.GetKey (KeyCode.Backspace)) {
-			SceneManager.LoadScene(0);
-			BinaryFormatter bf = new BinaryFormatter ();
-			FileStream file = File.Open(Application.persistentDataPath + "/LevelsDone.ld", FileMode.OpenOrCreate);
-			bf.Serialize (file, unlockedLevels);
-			file.Close ();
-		}
-		if(Input.GetKey (KeyCode.R)){
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-		}
+	void menu () {
+		SceneManager.LoadScene(0);
+		BinaryFormatter bf = new BinaryFormatter ();
+		FileStream file = File.Open(Application.persistentDataPath + "/LevelsDone.ld", FileMode.OpenOrCreate);
+		bf.Serialize (file, unlockedLevels);
+		file.Close ();
+	}
+
+	void restart () {
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 
 	Color colorCycle(Color c){
