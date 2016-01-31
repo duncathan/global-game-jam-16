@@ -54,12 +54,34 @@
      <Compile Include="Assets\Code\Stretch.cs" />
      <Compile Include="Assets\Code\Transformable.cs" />
      <Compile Include="Assets\Code\Translate.cs" />
+     <None Include="Assets\music\Metadata\AudioFile\{192ca128-913a-4ea0-a3ef-c7a28a68bebe}.xml" />
+     <None Include="Assets\music\Metadata\AudioFile\{f43ecf37-82b1-44df-ad95-6212ce31bbc9}.xml" />
+     <None Include="Assets\music\Metadata\Tags.xml" />
+     <None Include="Assets\music\Metadata\Workspace.xml" />
+     <None Include="Assets\music\Metadata\BankFolder\{1150d77a-0a2c-4989-a508-93938b08cfcc}.xml" />
+     <None Include="Assets\music\Metadata\Mixer.xml" />
+     <None Include="Assets\music\Metadata\EventFolder\{6541d04d-963b-45be-8c8d-4399383a5b6b}.xml" />
+     <None Include="Assets\music\Metadata\Master.xml" />
+     <None Include="Assets\music\Metadata\Return\{51a8226f-e28a-4c66-9ca5-d85e556d962a}.xml" />
+     <None Include="Assets\music\Metadata\AudioFile\{1750074c-c59c-4c1a-864d-facedab6340a}.xml" />
+     <None Include="Assets\music\Metadata\Bank\{1d589e30-9d0d-41a6-bdce-f40c9cc32f94}.xml" />
+     <None Include="Assets\music\Metadata\AudioFile\{7ba7aa0c-a76a-41b4-a2a6-37268cb34385}.xml" />
+     <None Include="Assets\music\Metadata\SnapshotGroup\{b735d863-6976-462e-9555-3de358c7b14c}.xml" />
+     <None Include="Assets\music\Metadata\AudioFile\{39530dc9-12e0-4185-ad8f-23647831c461}.xml" />
+     <None Include="Assets\music\Metadata\AudioFile\{6800145e-543e-4e70-91da-5825a65f012f}.xml" />
+     <None Include="Assets\music\Metadata\AudioFolder\{ba83e6ce-4943-45de-8faa-9ea765319d8f}.xml" />
+     <None Include="Assets\music\Metadata\AudioFolder\{1d99650c-13c4-4880-bc32-9043a5ddc800}.xml" />
+     <None Include="Assets\music\Metadata\Event\{f084e902-fa81-462b-95b7-5cd9e2b7ab78}.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{5FBE6153-A014-AF76-DAB8-2F9036F725AA}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
