@@ -16,7 +16,7 @@ public class LevelSelect : MonoBehaviour {
 		playButton = GameObject.Find ("PlayButton");
 		cont = GameObject.Find("MainController").GetComponent<MainControlCode> ();
 		if(!(cont.unlockedLevels.ints.Contains(levelDisplay))){
-			textPlace.GetComponent<Text> ().text = levelDisplay.ToString();
+			playButton.GetComponent<Button> ().enabled = false ;
 		}
 	}
 
@@ -25,9 +25,11 @@ public class LevelSelect : MonoBehaviour {
 		if (levelDisplay > SceneManager.sceneCountInBuildSettings - 2) {
 			levelDisplay = 1;
 		}
+		playButton.GetComponent<Button> ().enabled = true;
 		if (!(cont.unlockedLevels.ints.Contains (levelDisplay))) {
-			textPlace.GetComponent<Text> ().text = levelDisplay.ToString ();
+			playButton.GetComponent<Button> ().enabled = false ;
 		}
+		textPlace.GetComponent<Text> ().text = levelDisplay.ToString();
 	}
 		
 	void oneLess () {
@@ -35,10 +37,11 @@ public class LevelSelect : MonoBehaviour {
 		if (levelDisplay == 0) {
 			levelDisplay = SceneManager.sceneCountInBuildSettings - 2;
 		}
+		playButton.GetComponent<Button> ().enabled = true;
 		if(!(cont.unlockedLevels.ints.Contains(levelDisplay))){
-			playButton.GetComponent<Button> ().enabled = true;
-			textPlace.GetComponent<Text> ().text = levelDisplay.ToString();
+			playButton.GetComponent<Button> ().enabled = false;
 		}
+		textPlace.GetComponent<Text> ().text = levelDisplay.ToString();
 	}
 
 	void ChooseLevel() {
