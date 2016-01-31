@@ -35,11 +35,10 @@ public class LevelSelect : MonoBehaviour {
 		if (levelDisplay == 0) {
 			levelDisplay = SceneManager.sceneCountInBuildSettings - 2;
 		}
-		foreach (int s in cont.unlockedLevels.ints) {
-			if(!(cont.unlockedLevels.ints.Contains(levelDisplay))){
-				playButton.GetComponent<Button> ().enabled = true;
-				textPlace.GetComponent<Text> ().text = levelDisplay.ToString();
-			}
+		if(!(cont.unlockedLevels.ints.Contains(levelDisplay))){
+			playButton.GetComponent<Button> ().enabled = true;
+			textPlace.GetComponent<Text> ().text = levelDisplay.ToString();
+		}
 	}
 
 	void ChooseLevel() {
