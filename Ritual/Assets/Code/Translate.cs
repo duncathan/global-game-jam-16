@@ -16,8 +16,7 @@ public class Translate : Transformable {
         clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (mouseX != clickPosition.x && moveX) 
 		{
-			gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2 (-20*(mouseX - clickPosition.x), 0);
-			Debug.Log (mouseX - clickPosition.x);
+			gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2 (-40*(mouseX - clickPosition.x), 0);
 			mouseX = clickPosition.x;
 		} else 
 		{
@@ -25,7 +24,7 @@ public class Translate : Transformable {
 		}
 		if (mouseY != clickPosition.y && moveY) 
 		{
-			gameObject.GetComponent<Rigidbody2D>().velocity += new Vector2 (0, -20*(mouseY - clickPosition.y));
+			gameObject.GetComponent<Rigidbody2D>().velocity += new Vector2 (0, -40*(mouseY - clickPosition.y));
 			mouseY = clickPosition.y;
 		} else 
 		{

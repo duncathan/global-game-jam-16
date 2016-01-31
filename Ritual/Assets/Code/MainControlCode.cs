@@ -35,6 +35,9 @@ public class MainControlCode : MonoBehaviour {
 		if (Input.GetKey (KeyCode.Backspace)) {
 			SceneManager.LoadScene(0);
 		}
+		if(Input.GetKey (KeyCode.R)){
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		}
 	}
 
 	Color colorCycle(Color c){
